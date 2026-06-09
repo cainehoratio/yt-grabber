@@ -1,0 +1,15 @@
+# Downloaded media — never commit these
+downloads/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# Editor / OS
+.claude/
+.DS_Store
+Thumbs.db
