@@ -9,6 +9,15 @@ __pycache__/
 venv/
 env/
 
+# PyInstaller build artifacts
+build/
+dist/
+*.spec
+
+# Personal images (not part of the app)
+profile.JPG
+profile_web.jpg
+
 # Editor / OS
 .claude/
 .DS_Store

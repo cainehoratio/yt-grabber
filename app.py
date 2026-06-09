@@ -3,10 +3,26 @@ from tkinter import ttk, messagebox
 import threading
 import subprocess
 import shutil
+import sys
 import os
 import yt_dlp
 
-OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "downloads")
+
+def app_dir() -> str:
+    """Folder the app lives in — next to the .exe when frozen, else the script dir.
+    Used so downloads persist beside the app instead of a temp extraction folder."""
+    if getattr(sys, "frozen", False):
+        return os.path.dirname(sys.executable)
+    return os.path.dirname(os.path.abspath(__file__))
+
+
+def resource_path(name: str) -> str:
+    """Path to a bundled resource (e.g. icon.ico). Works in dev and PyInstaller onefile."""
+    base = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base, name)
+
+
+OUTPUT_DIR = os.path.join(app_dir(), "downloads")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 
@@ -183,7 +199,7 @@ class App(tk.Tk):
         self.title("YT Grabber")
         self.resizable(False, False)
         self.configure(bg=BG)
-        icon = os.path.join(os.path.dirname(__file__), "icon.ico")
+        icon = resource_path("icon.ico")
         if os.path.exists(icon):
             self.iconbitmap(icon)
         self._video_duration = None
