@@ -1,8 +1,14 @@
+<img src="logo-512.png" alt="YT Grabber logo" width="120" align="left" />
+
 # YT Grabber
 
 A clean, minimal desktop app for downloading YouTube videos as **MP4** or **MP3** — with a built-in **clip trimmer** so you can grab just the section you need.
 
+<br clear="left" />
+
 Built it to speed up sourcing footage for short-form video edits: paste a link, optionally set a start/end time, and get a ready-to-use file.
+
+**[⬇ Download the latest release](https://github.com/cainehoratio/yt-grabber/releases/latest)** — grab `YT Grabber.exe`, double-click, done. No install needed.
 
 ![YT Grabber screenshot](screenshot.png)
 

@@ -224,15 +224,15 @@ class App(tk.Tk):
     def _build_ui(self):
         # ── Header ───────────────────────────────────────────
         header = tk.Frame(self, bg=BG)
-        header.pack(fill="x", padx=28, pady=(24, 4))
+        header.pack(fill="x", padx=28, pady=(24, 8))
 
-        tk.Label(header, text="M", font=("Segoe UI", 15, "bold"),
-                 bg=BG, fg=FG).pack(side="left")
-        tk.Label(header, text="V", font=("Segoe UI", 15, "bold"),
-                 bg=BG, fg=ACCENT).pack(side="left")
+        logo_path = resource_path("header-logo.png")
+        if os.path.exists(logo_path):
+            self._logo_img = tk.PhotoImage(file=logo_path)  # keep a ref so it isn't GC'd
+            tk.Label(header, image=self._logo_img, bg=BG).pack(side="left", padx=(0, 12))
 
-        tk.Label(self, text="YT Grabber",
-                 font=("Segoe UI", 22, "bold"), bg=BG, fg=FG).pack(anchor="w", padx=28, pady=(0, 20))
+        tk.Label(header, text="YT Grabber",
+                 font=("Segoe UI", 22, "bold"), bg=BG, fg=FG).pack(side="left")
 
         # ── URL ──────────────────────────────────────────────
         self._label(self, "PASTE YOUTUBE LINK", small=True).pack(anchor="w", padx=28)
